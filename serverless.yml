@@ -4,7 +4,11 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs18.x
-
+  
+  profile: Liza-test
+  region: eu-north-1
+  iam:
+    role: arn:aws:iam::116267525892:role/serverless-lambda-role
 plugins:
   - serverless-webpack
 
@@ -14,3 +18,28 @@ package:
 functions:
   function1:
     handler: index.handler
+  postBooking:
+    handler: functions/postBooking/index.handler
+    events:
+      - httpApi:
+          path: '/booking'
+          method: 'POST'
+
+
+
+
+
+
+resources:
+  Resources:
+    bookingDB:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: room-booking-db
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id  
+            KeyType: HASH  
+        BillingMode: PAY_PER_REQUEST 
