@@ -4,11 +4,11 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs18.x
-  
-  profile: Liza-test
+  profile: ${env:AWS_PROFILE}
   region: eu-north-1
   iam:
-    role: arn:aws:iam::116267525892:role/serverless-lambda-role
+    role: ${env:AWS_IAM_ROLE}
+
 plugins:
   - serverless-webpack
 
