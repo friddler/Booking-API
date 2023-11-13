@@ -1,9 +1,15 @@
 service: Booking-API
-frameworkVersion: '3'
+frameworkVersion: "3"
 
 provider:
   name: aws
   runtime: nodejs18.x
+
+plugins:
+  - serverless-webpack
+
+package:
+  individually: true
 
 functions:
   function1:
