@@ -34,7 +34,7 @@ functions:
     handler: function/getBookings/index.handler
     events:
       - httpApi:
-          path: 'booking'
+          path: '/booking'
           method: 'GET' 
 
 
