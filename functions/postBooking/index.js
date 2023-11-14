@@ -41,6 +41,8 @@ function numberOfRooms(roomType){
     }
 }
 
+
+
 async function countRoomsBooked(dateIn,dateOut){
 
     const params = {
@@ -93,6 +95,7 @@ exports.handler = async (event,context) => {
             checkInDate : booking.dateIn,
             checkOutDate : booking.dateOut,
             bookerName : booking.name
+            
         }
         return sendResponse(200,{succes : true,  bookingConfirmation : bookingConfirmation});
     } catch (error) {
