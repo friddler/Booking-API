@@ -30,9 +30,12 @@ functions:
       - httpApi:
           path: '/booking'
           method: 'DELETE'
-
-
-
+  getBookings:
+    handler: function/getBookings/index.handler
+    events:
+      - httpApi:
+          path: 'booking'
+          method: 'GET' 
 
 
 resources:
