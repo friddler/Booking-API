@@ -1,5 +1,6 @@
 service: Booking-API
 frameworkVersion: "3"
+useDotenv: true
 
 provider:
   name: aws
@@ -11,7 +12,7 @@ provider:
 
 plugins:
   - serverless-webpack
-
+  
 package:
   individually: true
 
