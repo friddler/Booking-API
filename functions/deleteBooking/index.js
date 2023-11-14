@@ -27,41 +27,10 @@ const db = new AWS.DynamoDB.DocumentClient();
       }
     });
 
-        const booking = JSON.parse(event.body);
-    
-        const timeStamp = new Date().getTime();
-    
-        booking.id = `${timeStamp}`;
+    try{
         
-        if(booking.numberOfGuests > roomRules(booking))
-        {
-            return sendResponse(500, {succes: false, errorMessage : "Du har fler gäster än rum"});
-        }
-        
-        
-    
-        try{
-            const bookedRooms = await countRoomsBooked(booking.dateIn,booking.dateOut);
-    
-            if(bookedRooms.length >= numberOfRooms(booking.roomType)){
-                return sendResponse(500, {succes: false, message : "There is no " + booking.roomType + " available!"});
-            }
-            await db.put({
-                TableName: 'room-booking-db',
-                Item: booking
-            }).promise();
-    
-            const bookingConfirmation = {
-                bookingNumber : booking.id,
-                numberOfGuests : booking.numberOfGuests,
-                totalCost : sumOfBookedRoom(booking.roomType) + " SEK",
-                checkInDate : booking.dateIn,
-                checkOutDate : booking.dateOut,
-                bookerName : booking.name
-                
-            }
-            return sendResponse(200,{succes : true,  bookingConfirmation : bookingConfirmation});
-        } catch (error) {
-            return sendResponse(500, {succes: false, errorMessage : error});
-        }
+        return sendResponse(200,{succes : true,  bookingConfirmation : bookingConfirmation});
+    } catch (error) {
+        return sendResponse(500, {succes: false, errorMessage : error});
+    }
     }
