@@ -31,7 +31,7 @@ functions:
           path: '/booking'
           method: 'DELETE'
   getBookings:
-    handler: function/getBookings/index.handler
+    handler: functions/getBookings/index.handler
     events:
       - httpApi:
           path: '/booking'
