@@ -13,7 +13,7 @@ const db = new AWS.DynamoDB.DocumentClient();
     
     
     var params = {
-      TableName: 'TABLE',
+      TableName: 'room-booking-db',
       Key: {
         id : {S: '1699954341065'}
       }
@@ -29,7 +29,7 @@ const db = new AWS.DynamoDB.DocumentClient();
 
     try{
         
-        return sendResponse(200,{succes : true,  bookingConfirmation : bookingConfirmation});
+        return sendResponse(200,{succes : true, });
     } catch (error) {
         return sendResponse(500, {succes: false, errorMessage : error});
     }
