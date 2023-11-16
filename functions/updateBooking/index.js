@@ -17,9 +17,10 @@ exports.handler = async (event) => {
         const updateParams = {
             TableName: 'room-booking-db',
             Key: { id: updatedBooking.id },
-            UpdateExpression: "set #name = :n, #dateIn = :din, #dateOut = :dout, #roomType = :rtype, #numberOfGuests = :nguests",
+            UpdateExpression: "set #name = :n, #email = :email, #dateIn = :din, #dateOut = :dout, #roomType = :rtype, #numberOfGuests = :nguests",
             ExpressionAttributeNames: {
                 '#name': 'name',
+                '#email': 'email',
                 '#dateIn': 'dateIn',
                 '#dateOut': 'dateOut',
                 '#roomType': 'roomType',
@@ -27,6 +28,7 @@ exports.handler = async (event) => {
             },
             ExpressionAttributeValues: {
                 ":n": updatedBooking.name,
+                ":email": updatedBooking.email,
                 ":din": updatedBooking.dateIn,
                 ":dout": updatedBooking.dateOut,
                 ":rtype": updatedBooking.roomType,
