@@ -3,10 +3,25 @@
 ENDPOINTS: 
 
 POST - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking
+
 DELETE - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking/%7Bid%7D
+
 GET - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking
+
 PUT - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking/%7Bid%7D
 
+Example post object:
+
+{
+	"numberOfGuests": 3,
+	"roomType": "suit",
+	"dateIn": "2024-10-26",
+	"dateOut": "2024-10-28",
+	"name": "Panna",
+	"mail": "panna12@outlook.com"
+}
+
+roomTypes: "single room", "double room", "suit"
 
 
 
