@@ -1,3 +1,15 @@
+
+
+ENDPOINTS: 
+
+POST - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking
+DELETE - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking/%7Bid%7D
+GET - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking
+PUT - https://wk1yo2f1fk.execute-api.eu-north-1.amazonaws.com/booking/%7Bid%7D
+
+
+
+
 <!--
 title: 'AWS NodeJS Example'
 description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.'
